@@ -1,0 +1,161 @@
+* {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Open Sans", "Helvetica Neue", sans-serif;
+}
+.body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(150deg, rgba(0, 27, 161, 0.568), rgba(81, 17, 124, 0.8));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main {
+  display: flex;
+  margin: 30px;
+  width: fit-content;
+  height: 1024px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.banner {
+  flex: 2;
+  position: relative;
+}
+
+.banner img {
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.bannerOverlay {
+  position: absolute;
+  width: 100%;
+  height: 1024px;
+  background-color: #25165fcb;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.bannerOverlay .logo {
+  width: 500px;
+  height: 190px;
+}
+
+.bannerOverlay .subtitle {
+  color: rgba(255, 255, 255, 0.541);
+  font-size: 48px;
+  margin: 0;
+}
+
+.form {
+  flex: 1;
+  box-sizing: border-box;
+  margin: 0 83px;
+  margin-top: 122px;
+}
+
+.form img {
+  display: none;
+}
+
+.form h1 {
+  margin: 0;
+  margin-bottom: 12px;
+}
+
+.form p {
+  color: grey;
+  padding-bottom: 38px;
+  margin: 0;
+}
+
+.form label {
+  font-size: 16px;
+}
+
+.form input {
+  display: block;
+  box-sizing: border-box;
+  width: 400px;
+  height: 64px;
+  border: 1px solid #dedede;
+  border-radius: 20px;
+  margin-top: 12px;
+  margin-bottom: 25px;
+  padding: 22px 24px;
+}
+
+.form button {
+  background-color: #5f2eea;
+  width: 400px;
+  height: 64px;
+  color: white;
+  font-size: 16px;
+  margin-top: 7px;
+  margin-bottom: 32px;
+  border: none;
+  border-radius: 20px;
+}
+
+.form button:hover {
+  cursor: pointer;
+}
+
+.form center {
+  text-align: center;
+  color: #8692a6;
+}
+
+.form center a:link {
+  color: #5f2eea;
+}
+
+@media (max-width: 1300px) {
+  .main {
+    margin: 0;
+    border-radius: 0%;
+  }
+
+  .banner img {
+    display: block;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .bannerOverlay {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+  }
+}
+
+@media (max-width: 1150px) {
+  .banner {
+    display: none;
+  }
+
+  .main {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    /* margin: auto; */
+  }
+
+  .form {
+    margin: 50%;
+  }
+
+  .form img {
+    display: block;
+    margin: 30px 0;
+  }
+}

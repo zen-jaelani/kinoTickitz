@@ -20,7 +20,7 @@ function register() {
         </div>
 
         <div className={styles.form}>
-          <img src="../assets/image/Tickitz 1.png" alt="" />
+          <img src={require("../../assets/image/Tickitz 1.png")} alt="" />
           <h1>Sign Up</h1>
           <p>Fill your additional details</p>
 

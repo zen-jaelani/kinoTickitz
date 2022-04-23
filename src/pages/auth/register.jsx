@@ -1,50 +1,114 @@
-import React, { useEffect } from "react";
-import styles from "./register.module.css";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import styles from "./auth.module.css";
+import axios from "../../utils/axios";
+import Banner from "../../components/banner";
 
 function register() {
-  console.clear();
-
   useEffect(() => {
     document.body.classList.add(styles.body);
   }, []);
 
+  const [form, setForm] = useState({
+    firstName: "",
+    lastName: "",
+    noTelp: "",
+    email: "",
+    password: ""
+  });
+
+  const [message, setMessage] = useState("");
+  const [isError, setIsError] = useState(false);
+
+  const handleChangeForm = (event) => {
+    console.log(event.target.value, event.target.name);
+    setForm({ ...form, [event.target.name]: event.target.value });
+  };
+
+  const handleSubmit = async (event) => {
+    try {
+      event.preventDefault();
+      console.log(form);
+      const resultLogin = await axios.post("auth/register", form);
+
+      //   const resultUser = await axios.get(`user/${resultLogin.data.data.id}`);
+      console.log(resultLogin);
+      setMessage("");
+      localStorage.setItem("token", resultLogin.data.data.token);
+      localStorage.setItem("refreshToken", resultLogin.data.data.refreshToken);
+      //   navigate("/");
+    } catch (error) {
+      console.log(error.response, error);
+      setIsError(true);
+      setMessage(error.response.data.msg);
+    }
+  };
+
   return (
     <>
       <main className={styles.main}>
-        <div className={styles.banner}>
-          <div className={styles.bannerOverlay}>
-            <img src={require("../../assets/image/signLogo.png")} alt="" className={styles.logo} />
-            <h3 className={styles.subtitle}>wait, watch, wow!</h3>
-          </div>
-          <img src={require("../../assets/image/image 1.png")} alt="" />
-        </div>
+        <Banner />
 
-        <div className={styles.form}>
+        <form className={styles.form} onSubmit={handleSubmit}>
+          {isError && <div className="alert alert-danger">{message}</div>}
+
           <img src={require("../../assets/image/Tickitz 1.png")} alt="" />
           <h1>Sign Up</h1>
           <p>Fill your additional details</p>
 
           <label>First Name</label>
-          <input type="text" placeholder="Write your first name" />
+          <input
+            type="text"
+            name="firstName"
+            placeholder="Write your first name"
+            onChange={handleChangeForm}
+            required
+          />
 
           <label>Last Name</label>
-          <input type="text" placeholder="Write your last name" />
+          <input
+            type="text"
+            name="lastName"
+            placeholder="Write your last name"
+            onChange={handleChangeForm}
+            required
+          />
 
           <label>Phone Number</label>
-          <input type="tel" minLength="9" maxLength="14" placeholder="Write your phone number" />
+          <input
+            type="tel"
+            name="noTelp"
+            minLength="9"
+            maxLength="14"
+            onChange={handleChangeForm}
+            placeholder="Write your phone number"
+            required
+          />
 
           <label>Email</label>
-          <input type="email" placeholder="Write your email" />
+          <input
+            type="email"
+            name="email"
+            placeholder="Write your email"
+            onChange={handleChangeForm}
+            required
+          />
 
           <label>Password</label>
-          <input type="password" placeholder="Write your Password" />
+          <input
+            type="password"
+            name="password"
+            placeholder="Write your Password"
+            onChange={handleChangeForm}
+            required
+          />
 
           <button type="submit">Sign Up</button>
 
           <center>
-            Already have account ? <a href="signin.html">Sign In</a>
+            Already have account ? <Link to="/auth/login">Sign In</Link>
           </center>
-        </div>
+        </form>
       </main>
     </>
   );

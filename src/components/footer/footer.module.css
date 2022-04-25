@@ -1,0 +1,26 @@
+.subtitle {
+  color: rgba(124, 117, 117, 0.37);
+}
+.sosmed {
+  color: #d6d8e7;
+  font-size: 30px;
+}
+
+.textExplore {
+  width: 75px;
+  background-color: #7c4dff;
+  height: 2px;
+}
+
+.hrStyle {
+  width: 115px;
+  background-color: #7c4dff;
+  height: 2px;
+}
+
+@media (min-width: 992px) {
+  .sosmed {
+    color: rgb(121, 118, 118);
+    font-size: 20px;
+  }
+}

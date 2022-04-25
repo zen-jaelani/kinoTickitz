@@ -1,0 +1,117 @@
+.subtitle {
+  color: rgba(124, 117, 117, 0.37);
+}
+.title {
+  font-size: 38px;
+}
+
+.mainColor {
+  color: #752eea;
+}
+
+.movieV1 {
+  background-color: #d6d8e7;
+  height: 376px;
+  width: 100% !important;
+}
+
+.cardOverflow {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.cardItems {
+  max-width: 100%;
+  width: 159px;
+  background-color: rgba(255, 255, 255, 0.322);
+  border-radius: 10px;
+  border: 1px solid white;
+  padding: 16px;
+  margin: 15px;
+}
+
+.cardItems img {
+  width: 125px;
+}
+
+.cardShowing {
+  background-color: rgba(255, 255, 255, 0.322);
+  border-radius: 10px;
+  border: 1px solid white;
+}
+
+.cardPopup {
+  display: none;
+}
+.cardShowing:hover {
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.cardShowing:hover .cardPopup {
+  display: block;
+  cursor: pointer;
+}
+
+.cardUpcoming,
+.cardShowing {
+  max-width: 100%;
+  width: 159px;
+  padding: 16px;
+  margin: 15px;
+}
+.card img {
+  width: 120px;
+  height: 185px;
+}
+.cardTitle {
+  font-size: 14px;
+}
+.cardUpcoming p,
+.cardShowing p {
+  font-size: 11px;
+}
+
+.cardUpcoming button,
+.cardShowing button {
+  height: 31px;
+  width: 121px;
+  font-size: 12px;
+  color: #752eea;
+  background-color: white;
+}
+
+@media (min-width: 992px) {
+  .main {
+    display: flex;
+    text-align: left;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .movieV1 {
+    background-color: #d6d8e7;
+    height: 476px;
+    width: 100% !important;
+  }
+
+  .cardShowing {
+    width: 223px;
+    height: 100%;
+    padding: 30px;
+  }
+  .cardUpcoming {
+    width: 223px;
+    height: 452px;
+    padding: 30px;
+  }
+
+  .cardUpcoming img,
+  .cardShowing img {
+    width: 159px;
+    height: 244px;
+  }
+  .cardUpcoming button,
+  .cardShowing button {
+    height: 31px;
+    width: 161px;
+  }
+}

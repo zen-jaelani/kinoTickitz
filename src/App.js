@@ -18,7 +18,7 @@ function App() {
         <Route path="basic/react" element={<BasicReact />} />
         <Route path="auth/register" element={<Register />} />
         <Route path="auth/login" element={<Login />} />
-        <Route path="detail" element={<Detail />} />
+        <Route path="detail/:id" element={<Detail />} />
         <Route path="order" element={<Order />} />
         <Route path="Payment" element={<Payment />} />
         <Route path="all" element={<AllMovie />} />

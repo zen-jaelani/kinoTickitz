@@ -6,10 +6,11 @@ import styles from "./allMovie.module.css";
 import MovieCard from "../../components/cards/movie";
 import axios from "../../utils/axios";
 import Pagination from "react-paginate";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 function AllMovie() {
   const navigate = useNavigate();
+  const { state } = useLocation();
   const limit = 8;
   const [page, setPage] = useState(1);
   const [data, setData] = useState([]);
@@ -34,6 +35,7 @@ function AllMovie() {
   ];
 
   useEffect(() => {
+    setSearchValue(state ? state : "");
     getMovie();
   }, []);
 

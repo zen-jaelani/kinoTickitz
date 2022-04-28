@@ -34,6 +34,7 @@ function Login() {
       setMessage("");
       localStorage.setItem("token", resultLogin.data.data.token);
       localStorage.setItem("refreshToken", resultLogin.data.data.refreshToken);
+      localStorage.setItem("id", resultLogin.data.data.id);
       navigate("/");
     } catch (error) {
       console.log(error.response);

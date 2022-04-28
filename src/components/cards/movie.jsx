@@ -3,7 +3,6 @@ import styles from "./movie.module.css";
 
 function movie(props) {
   const { id, name, category, image } = props.data;
-
   return (
     <>
       <div
@@ -16,8 +15,8 @@ function movie(props) {
         <img
           src={
             image
-              ? `https://res.cloudinary.com/qxtlp/image/upload/v1649062140/${image}`
-              : "https://res.cloudinary.com/qxtlp/image/upload/v1650786142/default-movie.png"
+              ? `${process.env.REACT_APP_IMG_URL}${image}`
+              : `${process.env.REACT_APP_IMG_URL}default-movie.png`
           }
           alt=""
           className=""

@@ -15,6 +15,9 @@
   color: black;
   text-decoration: none;
 }
+.mainBg {
+  background-color: #5f2eea;
+}
 
 @media (min-width: 992px) {
   .customNavbar {
@@ -24,5 +27,9 @@
   .navBtn {
     border: none !important;
     margin: 0 !important;
+  }
+
+  .mainBg {
+    width: 150px !important;
   }
 }

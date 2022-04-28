@@ -1,7 +1,8 @@
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const axiosApiIntances = axios.create({
-  baseURL: "https://kinokarte.herokuapp.com/"
+  baseURL: process.env.REACT_APP_BASE_URL
 });
 
 // Add a request interceptor
@@ -10,6 +11,7 @@ axiosApiIntances.interceptors.request.use(
     config.headers = {
       Authorization: `Bearer ${localStorage.getItem("token")}`
     };
+
     return config;
   },
   function (error) {
@@ -28,6 +30,7 @@ axiosApiIntances.interceptors.response.use(
   function (error) {
     // Any status codes that falls outside the range of 2xx cause this function to trigger
     // Do something with response error
+    // window.location = window.location.protocol + "//" + window.location.host + "/auth/login";
     return Promise.reject(error);
   }
 );

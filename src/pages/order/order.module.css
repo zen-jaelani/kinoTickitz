@@ -1,0 +1,41 @@
+.flexMax2 {
+  width: 50%;
+}
+.flexMax2 p {
+  flex: 1 1 50%;
+}
+
+.hr {
+  border: 3px solid #9570fe;
+  margin: 0;
+}
+
+.mainText {
+  color: #5f2eea;
+  text-decoration: none;
+}
+.mainBg {
+  background-color: #5f2eea;
+  color: white;
+}
+
+.available {
+  color: #d6d8e7 !important;
+}
+.bottomButton button {
+  font-size: 22px;
+  width: 100%;
+  height: 60px;
+}
+
+@media (min-width: 992px) {
+  .bottomButton button {
+    border: 2px solid #5f2eea;
+    font-size: 12px;
+    width: 200px;
+  }
+
+  .flexMax2 {
+    width: 100%;
+  }
+}

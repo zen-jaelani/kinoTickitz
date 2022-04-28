@@ -1,0 +1,40 @@
+.seatList {
+  width: 17px;
+  height: 17px;
+  background-color: blueviolet;
+  color: white;
+  font-size: 15px;
+  border-radius: 2px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+.seatList:hover {
+  background-color: #5f2eea !important;
+  color: white;
+  width: 16px;
+  height: 16px;
+}
+.selected {
+  background-color: #5f2eea !important;
+}
+.available {
+  background-color: #d6d8e7 !important;
+  color: #d6d8e7 !important;
+}
+@media (min-width: 720px) {
+  .seatList {
+    width: 30px;
+    height: 30px;
+    background-color: blueviolet;
+    color: white;
+    font-size: 15px;
+    border-radius: 5px;
+  }
+  .seatList:hover {
+    width: 31px;
+    height: 31px;
+    padding: 2px !important;
+  }
+}

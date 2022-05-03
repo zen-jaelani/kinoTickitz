@@ -45,6 +45,7 @@ function Detail() {
     } catch (error) {
       console.log(error.response.data.msg);
       if (error.response.data.msg == "Please login first") {
+        localStorage.removeItem("id");
         window.location = window.location.protocol + "//" + window.location.host + "/auth/login";
       }
     }
@@ -100,7 +101,7 @@ function Detail() {
           <div className="row mt-3 mb-4 mx-auto">
             <div className="col-6">
               <p className="text-black-50 mb-1">Release date</p>
-              <p>{data.releaseDate}</p>
+              <p>{data.releaseDate ? new Date(data.releaseDate).toDateString() : ""}</p>
             </div>
             <div className="col-6">
               <p className="text-black-50 mb-1">Directed by</p>
@@ -161,6 +162,11 @@ function Detail() {
                   <span className="px-3"> {location ? location : "Set a city"} </span>
                 </button>
                 <ul className="dropdown-menu" aria-labelledby="city">
+                  <li>
+                    <a className="dropdown-item" onClick={() => changeLocation("")}>
+                      All
+                    </a>
+                  </li>
                   {Array.from(new Set(locationList)).map((i) => (
                     <li key={i}>
                       <a className="dropdown-item" onClick={() => changeLocation(i)}>

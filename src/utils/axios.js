@@ -36,17 +36,12 @@ axiosApiIntances.interceptors.response.use(
         window.location.href = "/auth/login";
       } else {
         const refreshToken = localStorage.getItem("refreshToken");
-        // console.log(refreshToken);
         axiosApiIntances
           .post("auth/refresh", { refreshToken })
           .then((res) => {
-            console.log(res.data);
             localStorage.setItem("token", res.data.data.token);
-            localStorage.setItem("refreshToken", res.data.data.newRefreshToken);
+            localStorage.setItem("refreshToken", res.data.data.refreshToken);
             window.location.reload();
-
-            console.log("refresh success");
-            console.log(res);
           })
           .catch((err) => {
             localStorage.clear();

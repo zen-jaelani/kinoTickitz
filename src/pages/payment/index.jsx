@@ -21,9 +21,6 @@ function Payment() {
       setUser(result.data.data);
     } catch (error) {
       console.log(error);
-      if (error.response.data.msg == "Please login first") {
-        window.location = window.location.protocol + "//" + window.location.host + "/auth/login";
-      }
     }
   }
 

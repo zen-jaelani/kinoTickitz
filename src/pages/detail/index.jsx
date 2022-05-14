@@ -44,10 +44,6 @@ function Detail() {
       return await resultSchedule.data.data.map((i) => i.location);
     } catch (error) {
       console.log(error.response.data.msg);
-      if (error.response.data.msg == "Please login first") {
-        localStorage.removeItem("id");
-        window.location = window.location.protocol + "//" + window.location.host + "/auth/login";
-      }
     }
   };
 
@@ -82,8 +78,8 @@ function Detail() {
             <img
               src={
                 data.image
-                  ? `https://res.cloudinary.com/qxtlp/image/upload/v1649062140/${data.image}`
-                  : "https://res.cloudinary.com/qxtlp/image/upload/v1650786142/default-movie.png"
+                  ? `${process.env.REACT_APP_IMG_URL}${data.image}`
+                  : `${process.env.REACT_APP_IMG_URL}default-movie.png`
               }
               alt=""
               className="p-4 mx-auto d-block"

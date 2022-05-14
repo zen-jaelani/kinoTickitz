@@ -5,7 +5,7 @@ function Footer() {
   return (
     <>
       <footer className="text-center text-lg-start text-black bg-white">
-        <section className="mt-5 pt-5">
+        <section className="pt-2">
           <div className="container text-start text-md-start mt-5">
             <div className="row mt-3">
               <div className="col-md-3 col-lg-4 col-xl-3 mb-4">

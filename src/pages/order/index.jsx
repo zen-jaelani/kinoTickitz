@@ -31,9 +31,6 @@ function Order() {
       setSchedule(result.data.data[0]);
     } catch (error) {
       console.log(error, error.response);
-      if (error.response.data.msg == "Please login first") {
-        window.location = window.location.protocol + "//" + window.location.host + "/auth/login";
-      }
     }
   };
   //   console.log(state);
@@ -92,7 +89,7 @@ function Order() {
             <article>
               <h6>Choose Your Seat</h6>
               <div className="card seat">
-                <div className="card-body py-3 d-flex flex-column">
+                <div className="card-body container w-75 py-3 d-flex flex-column">
                   <p className="d-none d-lg-block text-center m-0 text-muted">Screen</p>
                   <hr className={`w-100 mb-3 ${styles.hr}`} />
                   <div className="h-auto " style={{}} id="seat-selection">

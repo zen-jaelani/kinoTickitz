@@ -11,6 +11,7 @@ import AllMovie from "./pages/allMovie";
 import ManageMovie from "./pages/manageMovie/index";
 import ManageSchedule from "./pages/manageSchedule/index";
 import Profile from "./pages/profile";
+import Dashboard from "./pages/dashboard";
 import PrivateRoute from "./helpers/route/privateRoute";
 import PublicRoute from "./helpers/route/publicRoute";
 
@@ -36,6 +37,7 @@ function App() {
         </Route>
 
         <Route element={<PrivateRoute isAdmin={true} />}>
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="manage/movie" element={<ManageMovie />} />
           <Route path="manage/schedule" element={<ManageSchedule />} />
         </Route>

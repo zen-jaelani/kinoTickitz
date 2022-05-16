@@ -1,7 +1,7 @@
 import React from "react";
 
 function Error(props) {
-  const { status, statusText } = props.data ? props.data : [];
+  const { status, statusText, msg } = props.data ? props.data : [];
   return (
     <div>
       <div className="d-flex justify-content-center align-items-center" style={{ height: "50vh" }}>
@@ -9,7 +9,9 @@ function Error(props) {
           {status ? status : "400"}
         </h1>
         <div className="inline-block align-middle">
-          <h2 className="font-weight-normal lead">{statusText ? statusText : "Bad Request"} </h2>
+          <h2 className="font-weight-normal lead">
+            {statusText || msg ? statusText || msg : "Bad Request"}{" "}
+          </h2>
         </div>
       </div>
     </div>

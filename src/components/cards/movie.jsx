@@ -9,7 +9,7 @@ function movie(props) {
         className={
           props.type == "showing"
             ? `card ${styles.cardShowing} h-100 ${styles.card}`
-            : `card ${styles.cardUpcoming} h-100 ${styles.card}`
+            : `card ${styles.cardUpcoming} h-100 pb-0 ${styles.card}`
         }
       >
         <img
@@ -26,9 +26,29 @@ function movie(props) {
             <h5 className={`card-title ${styles.cardTitle}`}>{name}</h5>
             <p className="card-text text-secondary">{category} </p>
           </div>
-          <button className="btn btn-primary btn-sm" onClick={() => props.handleDetail(id)}>
-            Details
-          </button>
+          {props.type == "admin" ? (
+            <>
+              <button
+                className="btn btn-primary btn-sm"
+                onClick={() => props.setUpdate(props.data)}
+              >
+                Update
+              </button>
+              <button
+                className="btn btn-primary btn-sm border border-danger mt-2 text-danger"
+                onClick={() => props.handleDelete(id)}
+              >
+                Delete
+              </button>
+            </>
+          ) : (
+            <button
+              className="btn btn-primary btn-sm mt-3 mb-4"
+              onClick={() => props.handleDetail(id)}
+            >
+              Details
+            </button>
+          )}
         </div>
       </div>
     </>

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
-import axios from "../../utils/axios";
 import { useNavigate, Link } from "react-router-dom";
+import axios from "../../utils/axios";
 import styles from "./auth.module.css";
 import Banner from "../../components/banner";
+import { login } from "../../stores/action/auth";
+import { useDispatch } from "react-redux";
 
 function Login() {
   useEffect(() => {
@@ -10,6 +12,7 @@ function Login() {
   }, []);
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [form, setForm] = useState({
     email: "",
@@ -26,18 +29,26 @@ function Login() {
   const handleSubmit = async (event) => {
     try {
       event.preventDefault();
-      console.log(form);
-      const resultLogin = await axios.post("auth/login", form);
 
-      //   const resultUser = await axios.get(`user/${resultLogin.data.data.id}`);
-      console.log(resultLogin);
+      const resultUser = await axios.post(`auth/login`, form);
+      console.log(resultUser);
       setMessage("");
-      localStorage.setItem("token", resultLogin.data.data.token);
-      localStorage.setItem("refreshToken", resultLogin.data.data.refreshToken);
-      localStorage.setItem("id", resultLogin.data.data.id);
-      navigate("/");
+      dispatch(login(form))
+        .then((res) => {
+          console.log("login success");
+          navigate("/");
+          location.reload();
+        })
+        .catch((err) => alert(err));
+      localStorage.setItem("token", resultUser.data.data.token);
+      localStorage.setItem("refreshToken", resultUser.data.data.refreshToken);
+      localStorage.setItem(
+        "dataUser",
+        JSON.stringify({ id: resultUser.data.data.id, role: "admin" })
+      );
+      localStorage.setItem("id", resultUser.data.data.id);
     } catch (error) {
-      console.log(error.response);
+      console.log(error.response, error);
       setIsError(true);
       setMessage(error.response.data.msg);
     }

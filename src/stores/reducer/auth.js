@@ -10,6 +10,8 @@ const auth = (state = initialState, action) => {
     case "LOGIN_PENDING":
       return {
         ...state,
+        isError: false,
+
         isLoading: true
       };
 
@@ -17,6 +19,8 @@ const auth = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
+        isError: false,
+
         data: action.payload.data.data,
         msg: action.payload.data.msg
       };

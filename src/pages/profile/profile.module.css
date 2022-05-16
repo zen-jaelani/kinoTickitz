@@ -1,0 +1,172 @@
+.main button,
+.main div,
+.main nav {
+  border-radius: 15px !important;
+}
+
+.roundImage {
+  object-fit: cover;
+  object-position: top;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.mainBg {
+  background-color: #5f2eea;
+  color: white;
+}
+
+.left,
+.right {
+  width: 298px;
+  position: relative;
+  background-color: white;
+}
+
+.right {
+  border-bottom: 1px dashed rgba(128, 128, 128, 0.466);
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  height: 258px;
+}
+.right::after,
+.right::before {
+  content: "";
+  width: 40px;
+  height: 40px;
+  background-color: #eff0f7;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -20px;
+}
+
+.right::before {
+  left: -20px;
+}
+.right::after {
+  right: -20px;
+}
+
+.left {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+.left::after,
+.left::before {
+  content: "";
+  width: 40px;
+  height: 40px;
+  background-color: #eff0f7;
+  position: absolute;
+  border-radius: 50%;
+  top: -20px;
+}
+
+.left::before {
+  right: -20px;
+}
+.left::after {
+  left: -20px;
+}
+
+.tabs {
+  position: fixed;
+  top: 100px;
+  left: 0;
+  width: 100%;
+}
+.tabs a {
+  background-color: white !important;
+  color: gray;
+}
+
+a:global(.active) {
+  color: black !important;
+  border-bottom: 4px solid #5f2eea !important;
+  border-radius: 0 !important;
+}
+
+@media (min-width: 768px) {
+  .main button,
+  .main div,
+  .main nav {
+    border-radius: 1px !important;
+    box-shadow: none !important;
+  }
+  .tabs {
+    position: relative;
+    top: 0px;
+    box-shadow: none !important;
+  }
+  .ticket {
+    bottom: 600px;
+    left: 50px;
+    width: fit-content;
+  }
+  .ticket img {
+    height: 52px;
+    width: 165px;
+  }
+
+  .left,
+  .right {
+    background: linear-gradient(to bottom, #5f2eea 0%, #5f2eea 26%, #fcfcfc 26%, #fcfcfc 100%);
+    height: 360px;
+    position: relative;
+    background-color: black;
+  }
+
+  .left {
+    border-right: 5px dashed #eff0f7;
+    width: 570px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+  }
+  .left::after,
+  .left::before {
+    content: "";
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    border-radius: 50%;
+    right: -28px;
+    top: 340px;
+  }
+
+  .left::before {
+    top: -20px;
+  }
+  .left::after {
+    left: 548px;
+  }
+
+  .right {
+    border-bottom: none;
+    border-left: 5px dashed #eff0f7;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    width: 250px;
+    background-color: salmon;
+  }
+  .right::after,
+  .right::before {
+    content: "";
+    width: 40px;
+    height: 40px;
+    background-color: #eff0f7;
+    border-radius: 50%;
+    position: absolute;
+    left: -25px;
+  }
+
+  .right::before {
+    top: -20px;
+  }
+  .right::after {
+    bottom: -20px;
+  }
+  .right:hover {
+    margin-left: 10px;
+  }
+}

@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./header.module.css";
-import axios from "../../utils/axios";
+import { useSelector, useDispatch } from "react-redux";
+import { getUser } from "../../stores/action/user";
 
 function Header() {
   const [user, setUser] = useState({});
   const [searchState, setSearchState] = useState(false);
   const [searchValue, setSearchValue] = useState("");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const dataUser = useSelector((state) => state.auth);
 
   useEffect(() => {
     getData();
@@ -15,15 +19,14 @@ function Header() {
 
   const getData = async () => {
     try {
-      if (localStorage.getItem("id")) {
-        const result = await axios.get(`user/${localStorage.getItem("id")}`);
-        setUser(result.data.data);
+      console.log(dataUser);
+      if (dataUser.data.id) {
+        dispatch(getUser(dataUser.data.id)).then((res) => setUser(res.value.data.data));
       }
     } catch (error) {
       console.log(error, error.response);
     }
   };
-  console.log(user);
 
   const showSearch = () => {
     if (!searchState) {
@@ -42,6 +45,12 @@ function Header() {
     if (event.key == "Enter") {
       navigate("/all", { state: searchValue });
     }
+  };
+
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate("/");
+    location.reload();
   };
 
   return (
@@ -67,18 +76,48 @@ function Header() {
             <div className="collapse navbar-collapse" id="navbarContent">
               <div className="d-flex flex-column flex-lg-row border-2 w-100">
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0 w-100 order-1 order-lg-0">
-                  <button
-                    className={`btn btn-block border-bottom border-top btn-lg mt-4 ${styles.navBtn}`}
-                  >
-                    <Link to="/" className="text-black">
-                      Home
-                    </Link>
-                  </button>
-                  <button className={`btn btn-block btn-lg border-bottom ${styles.navBtn}`}>
-                    <Link to="/all" className="text-black">
-                      List Movie
-                    </Link>
-                  </button>
+                  {user.role == "admin" ? (
+                    <>
+                      <button
+                        className={`btn btn-block border-bottom border-top btn-lg mt-4 ${styles.navBtn}`}
+                      >
+                        <Link to="/dashboard" className="text-black">
+                          Dashboard
+                        </Link>
+                      </button>
+
+                      <button
+                        className={`btn btn-block border-bottom border-top btn-lg mt-4 ${styles.navBtn}`}
+                      >
+                        <Link to="/manage/movie" className="text-black">
+                          Manage Movie
+                        </Link>
+                      </button>
+
+                      <button
+                        className={`btn btn-block border-bottom border-top btn-lg mt-4 ${styles.navBtn}`}
+                      >
+                        <Link to="/manage/schedule" className="text-black">
+                          Manage Schedule
+                        </Link>
+                      </button>
+                    </>
+                  ) : (
+                    <>
+                      <button
+                        className={`btn btn-block border-bottom border-top btn-lg mt-4 ${styles.navBtn}`}
+                      >
+                        <Link to="/" className="text-black">
+                          Home
+                        </Link>
+                      </button>
+                      <button className={`btn btn-block btn-lg border-bottom ${styles.navBtn}`}>
+                        <Link to="/all" className="text-black">
+                          List Movie
+                        </Link>
+                      </button>
+                    </>
+                  )}
                 </ul>
 
                 <ul
@@ -104,15 +143,39 @@ function Header() {
                     </div>
                   </div>
                   {/* </form> */}
-                  <img
-                    src={
-                      user.image
-                        ? `${process.env.REACT_APP_IMG_URL}${user.image}`
-                        : `${process.env.REACT_APP_IMG_URL}default-profile.jpg`
-                    }
-                    alt=""
-                    className={`d-none d-lg-block ${styles.profileImage}`}
-                  />
+                  <div className="dropdown">
+                    <a
+                      className="invisible"
+                      href="#"
+                      role="button"
+                      id="dropdownMenuLink"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      <img
+                        src={
+                          user.image
+                            ? `${process.env.REACT_APP_IMG_URL}${user.image}`
+                            : `${process.env.REACT_APP_IMG_URL}default-profile.jpg`
+                        }
+                        alt=""
+                        className={`d-none d-lg-block visible ${styles.profileImage}`}
+                      />{" "}
+                    </a>
+
+                    <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <li>
+                        <button className="dropdown-item" onClick={() => navigate("/profile")}>
+                          Profile
+                        </button>
+                      </li>
+                      <li>
+                        <button className="dropdown-item" onClick={handleLogout}>
+                          Logout
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
                 </ul>
 
                 <ul className={`navbar-nav order-3 ${!user.id ? "d-block" : "d-none"}`}>

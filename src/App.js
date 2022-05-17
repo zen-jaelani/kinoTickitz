@@ -1,7 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/home/index";
-import BasicCounter from "./pages/basic/Counter/classComponent";
-import BasicReact from "./pages/basic/React";
 import Register from "./pages/auth/register";
 import Login from "./pages/auth/login";
 import Detail from "./pages/detail";
@@ -21,9 +19,6 @@ function App() {
       <Routes>
         <Route path="" element={<Home />} />
         <Route path="all" element={<AllMovie />} />
-        <Route path="basic/counter" element={<BasicCounter />} />
-        <Route path="basic/react" element={<BasicReact />} />
-
         <Route element={<PublicRoute restricted={true} />}>
           <Route path="auth/register" element={<Register />} />
           <Route path="auth/login" element={<Login />} />

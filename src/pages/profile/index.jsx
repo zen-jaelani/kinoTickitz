@@ -99,6 +99,16 @@ function Profile() {
     }
   };
 
+  const handleLogout = () => {
+    dispatch(logout())
+      .then((res) => {
+        localStorage.clear();
+        navigate("/");
+        location.reload();
+      })
+      .catch((err) => alert(err));
+  };
+
   return (
     <>
       <Header></Header>
@@ -149,7 +159,9 @@ function Profile() {
               </div>
               <div className="border mt-5"></div>
               <div className="card-footer bg-white text-center border-0">
-                <button className={`btn btn-lg ${styles.mainBg} w-75 my-3`}>Logout</button>
+                <button className={`btn btn-lg ${styles.mainBg} w-75 my-3`} onClick={handleLogout}>
+                  Logout
+                </button>
               </div>
             </div>
           </div>
@@ -324,19 +336,24 @@ function Profile() {
                             data-bs-target="#exampleModal"
                             data-bs-whatever="@mdo"
                             onClick={() =>
-                              dispatch(getBooking(item.id)).then((res) =>
-                                setOrderDetail(res.value.data.data)
-                              )
+                              dispatch(getBooking(item.id)).then((res) => {
+                                setOrderDetail(res.value.data.data);
+                              })
                             }
                           >
                             Ticket is active
                           </button>
                         ) : (
                           <button
-                            className="btn btn-secondary"
+                            className="btn btn-lg btn-secondary w-100"
                             data-bs-toggle="modal"
                             data-bs-target="#exampleModal"
                             data-bs-whatever="@mdo"
+                            onClick={() =>
+                              dispatch(getBooking(item.id)).then((res) => {
+                                setOrderDetail(res.value.data.data);
+                              })
+                            }
                           >
                             Ticket used
                           </button>
@@ -440,7 +457,7 @@ function Profile() {
                                     </div>
                                     <div className="d-flex justify-content-center mt-4 pt-2 mt-lg-5">
                                       <QRCodeSVG
-                                        value="https://reactjs.org/"
+                                        value={`${process.env.REACT_APP_BASE_URL}booking/ticket/${orderDetail.id}`}
                                         // fgColor="#5f2eea"
                                         size={150}
                                       />

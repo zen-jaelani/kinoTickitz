@@ -25,16 +25,16 @@
 }
 @media (min-width: 720px) {
   .seatList {
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
     background-color: blueviolet;
     color: white;
     font-size: 15px;
     border-radius: 5px;
   }
   .seatList:hover {
-    width: 31px;
-    height: 31px;
+    width: 29px;
+    height: 29px;
     padding: 2px !important;
   }
 }

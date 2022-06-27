@@ -21,7 +21,7 @@ function Seat(props) {
       <div className="seat">
         <div className="row ">
           <div className="col p-0 text-center pt-2 d-none d-md-block">{rowSeat}</div>
-          <div className="col-6 p-0 ms-4 ms-md-0">
+          <div className="col-6 d-flex p-0">
             {leftSide.map((i) => (
               <div
                 className={`${styles.seatList} btn m-1 p-0 
@@ -37,7 +37,7 @@ function Seat(props) {
               ></div>
             ))}
           </div>
-          <div className="col-5 p-0">
+          <div className="col-6 d-flex col-md-5 p-0">
             {rightSide.map((i) => (
               <div
                 className={`${styles.seatList} btn m-1 p-0 

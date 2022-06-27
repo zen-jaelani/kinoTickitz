@@ -51,7 +51,7 @@ function Payment() {
   return (
     <>
       <Header></Header>
-      <div className={`container-fluid bg-white ${styles.rounder} shadow`}>
+      <div className={`container-fluid bg-white ${styles.rounder} shadow mt-3`}>
         <div className="container w-100 d-flex justify-content-between d-lg-none">
           <p className="text-secondary fs-5">Total Payment</p>
           <p className="fs-4">
@@ -66,7 +66,7 @@ function Payment() {
       </div>
 
       <main className="container-fluid" id="working" style={{ backgroundColor: "#f5f6f8" }}>
-        <div className="container row d-flex d-lg-block py-5 mx-auto">
+        <div className="container p-0 row d-flex d-lg-block py-5 mx-auto">
           <div className="col-lg-8 float-start mb-lg-5">
             <section className="d-block d-lg-block mb-4">
               <h6>Payment Info</h6>

@@ -72,7 +72,7 @@ function Order() {
     <>
       <Header></Header>
       <main className="container-fluid" id="working" style={{ backgroundColor: "#f5f6f8" }}>
-        <div className="container row d-flex d-lg-block py-5 mx-auto">
+        <div className="container p-0 row d-flex d-lg-block py-5 mx-auto">
           <div className="col-lg-8 float-start mb-lg-5">
             <section className="d-none d-lg-block mb-4">
               <h6>Movie Selected</h6>
@@ -88,13 +88,11 @@ function Order() {
 
             <article>
               <h6>Choose Your Seat</h6>
-              <div className="card seat">
-                <div className="card-body container w-75 py-3 d-flex flex-column">
+              <div className="card ">
+                <div className="card-body container  py-3 d-flex flex-column">
                   <p className="d-none d-lg-block text-center m-0 text-muted">Screen</p>
                   <hr className={`w-100 mb-3 ${styles.hr}`} />
-                  <div className="h-auto " style={{}} id="seat-selection">
-                    <div className="vr border border-success border-2 d-block d-lg-none"></div>
-
+                  <div className="h-auto mx-lg-5" style={{}} id="seat-selection">
                     {listSeats.map((item) => (
                       <div key={item}>
                         <Seats

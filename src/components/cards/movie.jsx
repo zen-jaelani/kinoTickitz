@@ -8,8 +8,8 @@ function movie(props) {
       <div
         className={
           props.type == "showing"
-            ? `card ${styles.cardShowing} h-100 ${styles.card}`
-            : `card ${styles.cardUpcoming} h-100 pb-0 ${styles.card}`
+            ? `card ${styles.cardShowing} ${props.className} h-100 ${styles.card}`
+            : `card ${styles.cardUpcoming} ${props.className} h-100 pb-0 ${styles.card}`
         }
       >
         <img

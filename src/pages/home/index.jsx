@@ -103,6 +103,7 @@ function Home() {
                 <MovieCard
                   key={item.id}
                   data={item}
+                  className="m-3"
                   type="showing"
                   handleDetail={handleDetailMovie}
                 />
@@ -145,6 +146,7 @@ function Home() {
               <MovieCard
                 key={item.id}
                 data={item}
+                className="m-3"
                 type="upcoming"
                 handleDetail={handleDetailMovie}
               />

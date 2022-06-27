@@ -97,11 +97,9 @@ function AllMovie() {
 
       <main className="container-fluid pb-5 pt-5 bg-light">
         <section className="container">
-          <div className="row pt-5">
-            <div className="col fw-bold fs-5 p-md-0 pb-3">All Movie</div>
-            <div
-              className={`col d-flex justify-content-end text-end pl-3 px-5 ${styles.mainColor}`}
-            >
+          <div className="d-flex flex-column flex-md-row justify-content-between pt-5">
+            <div className=" fw-bold fs-5 p-md-0 pb-3">List Movie</div>
+            <div className={` d-flex  ${styles.mainColor}`}>
               <div className="dropdown bg-white rounded-3 border me-2 d-flex p-0">
                 <button
                   className="btn btn-white rounded-3 dropdown-toggle text-center mx-auto"
@@ -110,7 +108,13 @@ function AllMovie() {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  <span className="px-3"> {sortValue ? sortValue : "Sort"} </span>
+                  <span className="px-3 text-capitalize">
+                    {sortValue
+                      ? sortValue.includes("ASC")
+                        ? sortValue.split(" ")[0] + " A-Z"
+                        : sortValue.split(" ")[0] + " Z-A"
+                      : "Sort"}
+                  </span>
                 </button>
                 <ul className="dropdown-menu" aria-labelledby="sort">
                   <li>
@@ -148,14 +152,19 @@ function AllMovie() {
           </div>
         </section>
 
-        <div className="container bg-white mt-5 py-5">
+        <div className="container bg-white mt-5 py-1">
           <div className="">
             <div className="mt-5">
-              <div className="row justify-content-evenly gy-5">
+              <div className="row  gy-4 ">
                 {data.length ? (
                   data.map((item) => (
-                    <div className="col-lg-3 justify-content-center " key={item.id}>
-                      <MovieCard data={item} type="upcoming" handleDetail={handleDetailMovie} />
+                    <div className="col-6 col-lg-3 " key={item.id}>
+                      <MovieCard
+                        data={item}
+                        type="upcoming"
+                        className="mx-auto"
+                        handleDetail={handleDetailMovie}
+                      />
                     </div>
                   ))
                 ) : (

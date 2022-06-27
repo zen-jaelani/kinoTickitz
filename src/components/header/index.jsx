@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import styles from "./header.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { getUser } from "../../stores/action/user";
+import { logout } from "../../stores/action/auth";
 
 function Header() {
   const [user, setUser] = useState({});
@@ -48,9 +49,13 @@ function Header() {
   };
 
   const handleLogout = () => {
-    localStorage.clear();
-    navigate("/");
-    location.reload();
+    dispatch(logout())
+      .then((res) => {
+        localStorage.clear();
+        navigate("/");
+        location.reload();
+      })
+      .catch((err) => alert(err));
   };
 
   return (

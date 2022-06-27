@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+&nbsp;
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+<img src="https://i.imgur.com/Coa0baQ.png" title="" alt="kinoKarte" data-align="center">
+</p>
 
-## Available Scripts
+&nbsp;
 
-In the project directory, you can run:
+## About The Project
 
-### `npm start`
+kinoTickitz is an application that you can use to check for movies and cinemas around you. You can also book ticket conveniently without the need to waiting in line.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Built With
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- [React](https://reactjs.org/)
 
-### `npm test`
+- [Bootstrap](https://getbootstrap.com/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
 
-### `npm run build`
+### Prerequisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+you need to setting up the development enviroment for react native.you can follow instruction [here](https://reactnative.dev/docs/environment-setup)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clone repo
 
-### `npm run eject`
+   ```git
+   git clone git@github.com:zen-jaelani/kinoTickitz.git
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. Install Depedencies
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   ```
+   npm install
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Sneak Peek
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<p align="center">
+<img src="https://raw.githubusercontent.com/zen-jaelani/kinoTickitz/main/.github/assets/ss1.png?token=GHSAT0AAAAAABU6VUOYGBON4V5UQ652KV5IYVZWLEA" title="" alt="ScreenShot" data-align="center">
+</p>
 
-## Learn More
+<p align="center">
+<img src="https://raw.githubusercontent.com/zen-jaelani/kinoTickitz/main/.github/assets/ss2.png?token=GHSAT0AAAAAABU6VUOYI2U532J5N6XEZPA4YVZWMFQ" title="" alt="ScreenShot" data-align="center">
+</p>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<p align="center">
+<img src="https://raw.githubusercontent.com/zen-jaelani/kinoTickitz/main/.github/assets/ss3.png?token=GHSAT0AAAAAABU6VUOZDHV57ESHRMDAWYLAYVZWN5A" title="" alt="ScreenShot" data-align="center">
+</p>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<p align="center">
+<img src="https://raw.githubusercontent.com/zen-jaelani/kinoTickitz/main/.github/assets/ss4.png?token=GHSAT0AAAAAABU6VUOYWKUYUZYGV5MFVZGAYVZWPCA" title="" alt="ScreenShot" data-align="center">
+</p>

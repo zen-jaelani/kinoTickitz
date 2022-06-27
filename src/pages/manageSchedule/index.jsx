@@ -50,7 +50,7 @@ function ManageSchedule() {
   useEffect(() => {
     getData();
 
-    dispatch(getSchedule(1, 6, location, sortValue, "")).then((res) => {
+    dispatch(getSchedule(page, 6, location, sortValue, "")).then((res) => {
       let location = res.value.data.data.map((i) => i.location);
       location = Array.from(new Set(location)).map((i) => i);
       setLocationList(location);
@@ -59,6 +59,9 @@ function ManageSchedule() {
 
   useEffect(() => {
     const params = {};
+    if (page) {
+      params.page = page;
+    }
     if (movieId) {
       params.movieId = movieId;
     }
@@ -73,8 +76,8 @@ function ManageSchedule() {
       search: `?${createSearchParams(params)}`
     });
 
-    dispatch(getSchedule(1, 6, location, sortValue, movieId));
-  }, [sortValue, location, movieId]);
+    dispatch(getSchedule(page, 6, location, sortValue, movieId));
+  }, [sortValue, location, movieId, page]);
 
   const getData = async () => {
     try {
@@ -94,7 +97,7 @@ function ManageSchedule() {
       console.log(result);
     }
     // console.log(result);
-    dispatch(getSchedule(1, 6, location, sortValue, result.id)).then((res) => {
+    dispatch(getSchedule(page, 6, location, sortValue, result.id)).then((res) => {
       let location = res.value.data.data.map((i) => i.location);
       location = Array.from(new Set(location)).map((i) => i);
       setLocationList(location);
@@ -108,7 +111,7 @@ function ManageSchedule() {
     const { name, value, files, type } = event.target;
     console.log(event.target.value);
     if (name === "name") {
-      dispatch(getSchedule(1, 6, "", "", event.target.value));
+      dispatch(getSchedule(page, 6, "", "", event.target.value));
     } else {
       setForm({ ...form, [name]: value });
     }

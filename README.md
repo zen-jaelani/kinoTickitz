@@ -20,7 +20,7 @@ kinoTickitz is an application that you can use to check for movies and cinemas a
 
 ### Prerequisites
 
-you need to setting up the development enviroment for react native.you can follow instruction [here](https://reactnative.dev/docs/environment-setup)
+- [NPM](https://docs.npmjs.com/)
 
 ### Installation
 

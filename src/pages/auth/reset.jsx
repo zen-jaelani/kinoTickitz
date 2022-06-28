@@ -6,7 +6,7 @@ import Banner from "../../components/banner";
 import { login } from "../../stores/action/auth";
 import { useDispatch } from "react-redux";
 
-function Login() {
+function Reset() {
   useEffect(() => {
     document.body.classList.add(styles.body);
   }, []);
@@ -15,38 +15,20 @@ function Login() {
   const dispatch = useDispatch();
 
   const [form, setForm] = useState({
-    email: "",
-    password: ""
+    email: ""
   });
 
   const [message, setMessage] = useState("");
   const [isError, setIsError] = useState(false);
 
   const handleChangeForm = (event) => {
-    console.log(event.target.value, event.target.name);
     setForm({ ...form, [event.target.name]: event.target.value });
   };
   const handleSubmit = async (event) => {
     try {
       event.preventDefault();
-
-      const resultUser = await axios.post(`auth/login`, form);
-      console.log(resultUser);
-      setMessage("");
-      dispatch(login(form))
-        .then((res) => {
-          console.log("login success");
-          navigate("/");
-          location.reload();
-        })
-        .catch((err) => alert(err));
-      localStorage.setItem("token", resultUser.data.data.token);
-      localStorage.setItem("refreshToken", resultUser.data.data.refreshToken);
-      localStorage.setItem(
-        "dataUser",
-        JSON.stringify({ id: resultUser.data.data.id, role: "admin" })
-      );
-      localStorage.setItem("id", resultUser.data.data.id);
+      await axios.post("auth/generateOTP", form);
+      navigate("/auth/verify", { state: form });
     } catch (error) {
       console.log(error.response, error);
       setIsError(true);
@@ -64,14 +46,13 @@ function Login() {
 
         <form
           className={styles.form}
-          style={{ marginTop: 14 + "em", height: 100 + "%" }}
+          style={{ marginTop: 10 + "em", height: 100 + "%" }}
           onSubmit={handleSubmit}
           onReset={handleReset}
         >
-          {isError && <div className="alert alert-danger">{message}</div>}
           <img src={require("../../assets/image/Tickitz 1.png")} alt="" />
-          <h1>Sign In</h1>
-          <p>Sign in with your data that you entered during your registration</p>
+          <h1>Forgot Password</h1>
+          <p>we'll send a link to your email shortly</p>
           <label>Email</label>
           <input
             type="email"
@@ -80,23 +61,12 @@ function Login() {
             onChange={handleChangeForm}
             required
           />
-          <label>Password</label>
-          <input
-            type="password"
-            name="password"
-            placeholder="Write your Password"
-            onChange={handleChangeForm}
-            required
-          />
-          <button type="submit">Sign In</button>
-          <center>
-            Forgot your password? <Link to="/auth/reset">Reset now</Link> <br />
-            Don't have an account? <Link to="/auth/register">Sign Up</Link>
-          </center>
+          {isError && <div className="alert alert-danger">{message}</div>}
+          <button type="submit">Send</button>
         </form>
       </main>
     </>
   );
 }
 
-export default Login;
+export default Reset;

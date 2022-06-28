@@ -2,6 +2,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/home/index";
 import Register from "./pages/auth/register";
 import Login from "./pages/auth/login";
+import Reset from "./pages/auth/reset";
+import VerifyOTP from "./pages/auth/verifyOTP";
+import SetPassword from "./pages/auth/setPassword";
 import Detail from "./pages/detail";
 import Order from "./pages/order";
 import Payment from "./pages/payment";
@@ -22,6 +25,9 @@ function App() {
         <Route element={<PublicRoute restricted={true} />}>
           <Route path="auth/register" element={<Register />} />
           <Route path="auth/login" element={<Login />} />
+          <Route path="auth/reset" element={<Reset />} />
+          <Route path="auth/verify" element={<VerifyOTP />} />
+          <Route path="auth/setpass" element={<SetPassword />} />
         </Route>
 
         <Route element={<PrivateRoute isAdmin={false} />}>

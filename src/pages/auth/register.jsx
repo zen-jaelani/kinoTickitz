@@ -5,6 +5,8 @@ import axios from "../../utils/axios";
 import Banner from "../../components/banner";
 
 function register() {
+  const navigate = useNavigate();
+
   useEffect(() => {
     document.body.classList.add(styles.body);
   }, []);
@@ -27,10 +29,11 @@ function register() {
 
   const handleSubmit = async (event) => {
     try {
+      setMessage("");
+      setIsError(false);
       event.preventDefault();
       console.log(form);
       await axios.post("auth/register", form);
-      setMessage("");
       navigate("/auth/login");
     } catch (error) {
       console.log(error.response, error);

@@ -29,14 +29,9 @@ function register() {
     try {
       event.preventDefault();
       console.log(form);
-      const resultLogin = await axios.post("auth/register", form);
-
-      //   const resultUser = await axios.get(`user/${resultLogin.data.data.id}`);
-      console.log(resultLogin);
+      await axios.post("auth/register", form);
       setMessage("");
-      localStorage.setItem("token", resultLogin.data.data.token);
-      localStorage.setItem("refreshToken", resultLogin.data.data.refreshToken);
-      //   navigate("/");
+      navigate("/auth/login");
     } catch (error) {
       console.log(error.response, error);
       setIsError(true);
